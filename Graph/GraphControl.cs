@@ -1042,10 +1042,28 @@ namespace Graph
 		}
 		#endregion
 
+        #region OnMouseEnter
+        protected override void OnMouseEnter(EventArgs e)
+        {
+            base.OnMouseEnter(e);
 
+            if (!this.Focused)
+                this.Focus();
+        }
+        #endregion
 
-		#region OnMouseWheel
-		protected override void OnMouseWheel(MouseEventArgs e)
+        #region OnMouseLeave
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            base.OnMouseLeave(e);
+
+            if (this.Focused)
+                this.Parent.Focus();
+        }
+        #endregion
+
+        #region OnMouseWheel
+        protected override void OnMouseWheel(MouseEventArgs e)
 		{
 			base.OnMouseWheel(e);
 
@@ -1252,12 +1270,12 @@ namespace Graph
 			
 			if (DragElement == null &&
 				command != CommandMode.MarqueSelection &&
-				(currentButtons & MouseButtons.Right) != 0)
+				(currentButtons & MouseButtons.Left) != 0)
 			{
 				if (currentButtons == MouseButtons.Right)
 					command = CommandMode.TranslateView;
 				else
-				if (currentButtons == (MouseButtons.Right | MouseButtons.Left))
+				if (currentButtons == (MouseButtons.Left))
 					command = CommandMode.ScaleView;
 			}
 
