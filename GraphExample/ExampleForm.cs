@@ -140,7 +140,7 @@ namespace GraphNodes
 			node.AddItem(new NodeLabelItem("Entry 1", true, false));
 			node.AddItem(new NodeLabelItem("Entry 2", true, false));
 			node.AddItem(new NodeLabelItem("Entry 3", false, true));
-			node.AddItem(new NodeTextBoxItem("TEXTTEXT", false, true));
+			node.AddItem(new NodeTextBoxItem("TEXTTEXT", true, true));
 			node.AddItem(new NodeDropDownItem(new string[] { "1", "2", "3", "4" }, 0, false, false));
 			this.DoDragDrop(node, DragDropEffects.Copy);
 		}
@@ -190,5 +190,14 @@ namespace GraphNodes
 		{
 			graphControl.ShowLabels = showLabelsCheckBox.Checked;
 		}
+
+        private void EnvironmentNode_MouseDown(object sender, MouseEventArgs e)
+        {
+            var environmentNode = new Node("Environment");
+            environmentNode.Location = new Point(200, 50);
+            var textItem = new NodeTextBoxItem("Environment", false, true) { Tag = 1234 };
+            environmentNode.AddItem(textItem);
+            this.DoDragDrop(environmentNode, DragDropEffects.Copy);
+        }
 	}
 }

@@ -42,12 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddNodeItem.cs" />
+    <Compile Include="AddNodeItemEventArgs.cs" />
+    <Compile Include="Items\AddNodeItem.cs" />
     <Compile Include="Compatibility\AlwaysCompatible.cs" />
     <Compile Include="Compatibility\NeverCompatible.cs" />
     <Compile Include="Compatibility\ICompatibilityStrategy.cs" />
     <Compile Include="Compatibility\TagTypeCompatibility.cs" />
     <Compile Include="Items\NodeNumericSliderItem.cs" />
+    <Compile Include="Items\NodeItemType.cs" />
     <Compile Include="NodeSelection.cs" />
     <Compile Include="Items\NodeDropDownItem.cs" />
     <Compile Include="SelectionForm.cs">

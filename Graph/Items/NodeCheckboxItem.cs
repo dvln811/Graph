@@ -52,7 +52,6 @@ namespace Graph.Items
 			}
 		}
 		#endregion
-
 		#region Checked
 		bool internalChecked = false;
 		public bool Checked
