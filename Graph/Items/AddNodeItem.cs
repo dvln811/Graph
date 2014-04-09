@@ -40,10 +40,10 @@ namespace Graph
         public AddNodeItem()
         { }
 
-        public AddNodeItem(string text, NodeItemType type)
+        public AddNodeItem(NodeItemType type)
         {
             ItemType = type;
-            InternalText = text;
+            InternalText = "+";
             this.Label = new NodeLabelItem(InternalText);
         }
 
@@ -70,7 +70,7 @@ namespace Graph
         internal override void Render(Graphics graphics, SizeF minimumSize, PointF position)
         {
             var size = Measure(graphics);
-            size.Width = Math.Max(minimumSize.Width, size.Width);
+            size.Width = Math.Max(minimumSize.Width / 8, size.Width / 8);
             size.Height = Math.Max(minimumSize.Height, size.Height);
 
             size.Height -= GraphConstants.TopHeight;
