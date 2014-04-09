@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddNodeItemEventArgs.cs" />
+    <Compile Include="Compatibility\ValueCompatibilityStrategy.cs" />
     <Compile Include="Items\AddNodeItem.cs" />
     <Compile Include="Compatibility\AlwaysCompatible.cs" />
     <Compile Include="Compatibility\NeverCompatible.cs" />
