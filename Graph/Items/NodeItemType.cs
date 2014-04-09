@@ -15,6 +15,7 @@ namespace Graph.Items
         Label,
         NumericSlider,
         TextBox,
-        Title
+        Title,
+        Multi,
     }
 }

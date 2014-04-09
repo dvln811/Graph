@@ -18,6 +18,10 @@ namespace Graph
         public string InternalTitle { get { return internalTitle; } private set { internalTitle = value; } }
 
         public NodeLabelItem Label { get; private set; }
+        public Type CompatibilityType { get; set; }
+
+        public bool InputEnabled { get; private set; }
+        public bool OutputEnabled { get; private set; }
 
         private string internalText;
         public string InternalText
@@ -40,11 +44,14 @@ namespace Graph
         public AddNodeItem()
         { }
 
-        public AddNodeItem(NodeItemType type)
+        public AddNodeItem(NodeItemType type, Type compatibilityType, bool inputEnabled, bool outputEnabled)
         {
             ItemType = type;
             InternalText = "+";
             this.Label = new NodeLabelItem(InternalText);
+            CompatibilityType = compatibilityType;
+            InputEnabled = inputEnabled;
+            OutputEnabled = outputEnabled;
         }
 
         internal override SizeF Measure(Graphics context)
@@ -97,10 +104,10 @@ namespace Graph
         public override bool OnClick()
         {
             base.OnClick();
-            
+
             if (OnNodeAdded != null)
                 OnNodeAdded(AddItem(this.ItemType), new AddNodeItemEventArgs());
-            
+
             return true;
         }
 
@@ -109,7 +116,7 @@ namespace Graph
             switch (type)
             {
                 case NodeItemType.TextBox:
-                    return new NodeTextBoxItem("Test", true, true) { Tag = 1337 };
+                    return new NodeTextBoxItem("Test", InputEnabled, OutputEnabled) { Tag = CompatibilityType };
             }
 
             return null;

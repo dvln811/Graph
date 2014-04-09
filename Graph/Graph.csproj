@@ -51,6 +51,7 @@
     <Compile Include="Compatibility\TagTypeCompatibility.cs" />
     <Compile Include="Items\NodeNumericSliderItem.cs" />
     <Compile Include="Items\NodeItemType.cs" />
+    <Compile Include="Items\NodeParameterItem.cs" />
     <Compile Include="NodeSelection.cs" />
     <Compile Include="Items\NodeDropDownItem.cs" />
     <Compile Include="SelectionForm.cs">
