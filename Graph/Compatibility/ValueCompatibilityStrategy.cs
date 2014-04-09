@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Graph.Compatibility
 {
-    class ValueCompatibilityStrategy : ICompatibilityStrategy
+    public class ValueCompatibilityStrategy : ICompatibilityStrategy
     {
         public bool CanConnect(NodeConnector from, NodeConnector to)
         {
